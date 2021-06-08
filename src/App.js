@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
+import NasaImage from './Image'
 
 function App() {
+
+  const [image, setImage] = useState('')
+  const [status, changeStatus] = useState('On Earth')
+
+  const changeStatus = 
+
   return (
     <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun <span role="img" aria-label='go!'>🚀</span>!
-      </p>
+      <NasaImage image={image} changeStatus={changeStatus}/>
     </div>
   );
 }
