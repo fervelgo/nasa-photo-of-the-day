@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
-import NasaImage from './Image'
+import NasaImage from './NasaImage'
 import axios from 'axios'
 
 function App(props) {
@@ -27,7 +26,7 @@ function App(props) {
   }, [])
 
   return (
-    <div className="App">
+    <div>
       <NasaImage image={image} author={author} dateTaken={dateTaken} title={title} explanation={explanation}/>
     </div>
   );
