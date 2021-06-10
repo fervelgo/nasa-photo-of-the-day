@@ -1,17 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import NasaImage from './Image'
+import axios from 'axios'
 
-function App() {
+function App(props) {
 
   const [image, setImage] = useState('')
-  const [status, changeStatus] = useState('On Earth')
+  const [author, setAuthor] = useState('')
+  const [explanation, setExplanation] = useState('')
+  const [dateTaken, setDateTaken] = useState('')
+  const [title, setTitle] = useState('')
+ 
 
-  const changeStatus = 
+
+  useEffect(() => {
+    axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
+    .then((res) => { 
+        console.log(res)
+        setImage(res.data.url)
+        setAuthor(res.data.copyright)
+        setDateTaken(res.data.date)
+        setExplanation(res.data.explanation)
+        setTitle(res.data.title)
+    })
+    .catch( err => { console.log(err)})
+  }, [])
 
   return (
     <div className="App">
-      <NasaImage image={image} changeStatus={changeStatus}/>
+      <NasaImage image={image} author={author} dateTaken={dateTaken} title={title} explanation={explanation}/>
     </div>
   );
 }
