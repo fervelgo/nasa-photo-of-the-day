@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 const StyledImageCont = styled.div `
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&family=Merriweather:wght@300&display=swap');
 
   h1, h3 {
     font-family: 'Baloo Tammudu 2';
@@ -15,15 +17,17 @@ const StyledImageCont = styled.div `
 
   img {
     align-items: center;
+    border-radius: 5px;
+    padding: 8px;
+    margin: 8px;
   }
 
-  text-align: center;
+  display: flex column;
+  justify-content: center;
   align-items: center;
   padding: 8px;
-  display: flex column;
-  justify-content: space-between;
   width: 90%;
-  border: ${props => props.theme.secondary};
+  
 
 `
 
