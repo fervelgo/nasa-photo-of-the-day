@@ -20,6 +20,11 @@ const StyledImageCont = styled.div `
     border-radius: 5px;
     padding: 8px;
     margin: 8px;
+    width:100%;
+  }
+
+  .nasa-logo {
+    width:100%;
   }
 
   display: flex column;
@@ -38,6 +43,9 @@ export default function NasaImage({ image, author, explanation, title, dateTaken
   return (
     <StyledImageCont>
         <div>
+          <div>
+            <img className="nasa-logo" src='https://www.nasa.gov/sites/default/files/thumbnails/image/s75-31690.jpeg' alt='Nasa logo'/>
+          </div>
           <h1>{title}</h1>
           <img src={image} alt="Nasa Image of the Day"/>
         </div>

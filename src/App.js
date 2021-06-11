@@ -26,9 +26,9 @@ function App(props) {
   }, [])
 
   return (
-    <div>
+    
       <NasaImage image={image} author={author} dateTaken={dateTaken} title={title} explanation={explanation}/>
-    </div>
+  
   );
 }
 
