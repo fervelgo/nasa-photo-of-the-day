@@ -1,14 +1,34 @@
-import React from "react";
-import "./App.css";
+import React, { useState, useEffect } from "react";
+import NasaImage from './NasaImage'
+import axios from 'axios'
 
-function App() {
+function App(props) {
+
+  const [image, setImage] = useState('')
+  const [author, setAuthor] = useState('')
+  const [explanation, setExplanation] = useState('')
+  const [dateTaken, setDateTaken] = useState('')
+  const [title, setTitle] = useState('')
+ 
+
+
+  useEffect(() => {
+    axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
+    .then((res) => { 
+        console.log(res)
+        setImage(res.data.url)
+        setAuthor(res.data.copyright)
+        setDateTaken(res.data.date)
+        setExplanation(res.data.explanation)
+        setTitle(res.data.title)
+    })
+    .catch( err => { console.log(err)})
+  }, [])
+
   return (
-    <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun <span role="img" aria-label='go!'>🚀</span>!
-      </p>
-    </div>
+    
+      <NasaImage image={image} author={author} dateTaken={dateTaken} title={title} explanation={explanation}/>
+  
   );
 }
 
